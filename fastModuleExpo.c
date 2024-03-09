@@ -9,9 +9,9 @@
 
 // divida por 10 at� que o quociente seja menor que 10, ap�s empilhar esses resultados, printe os restos.
 //caso base = a <= 10
-int decimalParaBinario(int decimal, int result[])
+unsigned long long int decimalParaBinario(unsigned long long int decimal, unsigned long long int result[])
 {   
-    int binario[32]; // array para armazenar os bits do número binário
+    unsigned long long int binario[32]; // array para armazenar os bits do número binário
     int i = 0; // contador para o índice do array
 
     // converte decimal para binário
@@ -32,13 +32,13 @@ int decimalParaBinario(int decimal, int result[])
     return i;
 }
 
-long long int fastModuleExpo(long long int base, long long int expoente, int modN)
+unsigned long long int fastModuleExpo(unsigned long long int base, unsigned long long int expoente, unsigned long long int modN)
 {   
-    int expoBinario[32];
-    int restos[32];
+    unsigned long long int expoBinario[32];
+    unsigned long long int restos[32];
     restos[0] = base;
 
-     int tamanho = decimalParaBinario(expoente, expoBinario);
+     unsigned long long int tamanho = decimalParaBinario(expoente, expoBinario);
      int j=0;
     for (int i=1;i <tamanho;i++)
     {
@@ -54,7 +54,7 @@ long long int fastModuleExpo(long long int base, long long int expoente, int mod
         }
     }
 
-        return ("%d ", restos[tamanho-1]);
+        return ("%lld ", restos[tamanho-1]);
     
 }
 
@@ -62,12 +62,12 @@ long long int fastModuleExpo(long long int base, long long int expoente, int mod
 
 
 int main() {
-    long long int base, expoente, modulo;
+    unsigned long long int base, expoente, modulo;
     printf ("Digite a base, o expoente e o modulo: ");
     scanf("%lld %lld %lld", &base, &expoente, &modulo);
-    long long int result = fastModuleExpo(base,expoente, modulo);
+    unsigned long long int result = fastModuleExpo(base,expoente, modulo);
     printf ("Resultado com algortimo exponenciacao modular rapida: %lld\n", result);    
-    int result2 = pow(base,expoente);
-    printf ("Resultado usando funcao pow: %d\n", result2);
+    unsigned long long int result2 = pow(base,expoente);
+    printf ("Resultado usando funcao pow: %lld\n", result2%modulo);
 
 }
