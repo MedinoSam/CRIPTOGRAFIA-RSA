@@ -10,11 +10,10 @@ unsigned long long int gerarChavePublica(long long int p, long long int q)
 void preCodificar(char mensagem[], int  result[])
 {
     int i=0;
-    mensagem[strlen(mensagem) - 1] = '\0';//adiciona o \0 no final da string.
-    while (mensagem[i] != '\0')
+    int h = strlen(mensagem);
+    for (int i = 0 ; i < h;i++)
     {
         result[i] = mensagem[i];
-        i++;
     }
 }
 unsigned long long int decimalParaBinario(unsigned long long int decimal, unsigned long long int result[])
